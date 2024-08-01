@@ -11,8 +11,16 @@ from itemadapter import ItemAdapter
 class TrainPipeline:
     def process_item(self, item, spider):
         adapter = ItemAdapter(item)
+
         adapter['name'] = adapter['name'].strip()
-        adapter['population'] = int(adapter['population'])
-        adapter['area'] = float(adapter['area'])
+        adapter['year'] = int(adapter['year'].strip())
+        adapter['wins'] = int(adapter['wins'].strip())
+        adapter['losses'] = int(adapter['losses'].strip())
+        if adapter['ot_losses']:
+            adapter['ot_losses'] = int(adapter['ot_losses'].strip())
+        if adapter['win_percentage']:
+            adapter['win_percentage'] = float(adapter['win_percentage'].strip())
+        adapter['goals_for'] = int(adapter['goals_for'].strip())
+        adapter['goals_against'] = int(adapter['goals_against'].strip())
 
         return item

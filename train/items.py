@@ -5,8 +5,12 @@
 
 from scrapy import Item, Field
 
-class CountryItem(Item):
+class TeamItem(Item):
     name = Field()
-    capital = Field()
-    population = Field()
-    area = Field()
+    year = Field()
+    wins = Field()
+    losses = Field()
+    ot_losses = Field()
+    win_percentage = Field()
+    goals_for = Field()
+    goals_against = Field()
