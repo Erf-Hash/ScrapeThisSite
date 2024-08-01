@@ -5,22 +5,12 @@
 
 
 # useful for handling different item types with a single interface
-from itemadapter import ItemAdapter
+#from itemadapter import ItemAdapter
+from itemadapter.adapter import ItemAdapter
 
 
 class TrainPipeline:
     def process_item(self, item, spider):
         adapter = ItemAdapter(item)
-
-        adapter['name'] = adapter['name'].strip()
-        adapter['year'] = int(adapter['year'].strip())
-        adapter['wins'] = int(adapter['wins'].strip())
-        adapter['losses'] = int(adapter['losses'].strip())
-        if adapter['ot_losses']:
-            adapter['ot_losses'] = int(adapter['ot_losses'].strip())
-        if adapter['win_percentage']:
-            adapter['win_percentage'] = float(adapter['win_percentage'].strip())
-        adapter['goals_for'] = int(adapter['goals_for'].strip())
-        adapter['goals_against'] = int(adapter['goals_against'].strip())
-
+        adapter['title'] = adapter['title'].strip()
         return item

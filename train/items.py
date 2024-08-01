@@ -5,12 +5,10 @@
 
 from scrapy import Item, Field
 
-class TeamItem(Item):
-    name = Field()
+class OscarItem(Item):
+    title = Field()
     year = Field()
-    wins = Field()
-    losses = Field()
-    ot_losses = Field()
-    win_percentage = Field()
-    goals_for = Field()
-    goals_against = Field()
+    awards = Field()
+    nominations = Field()
+    best_picture = Field()
+
